@@ -32,7 +32,7 @@ public class Solution {
     }
 
     private static int getFirstWrap(IntStream stream) {
-        HashSet<Integer> seen = new HashSet<>();
+        Set<Integer> seen = new HashSet<>();
         List<Integer> vals = stream.boxed().collect(Collectors.toList());
 
         int tmp = 0;
@@ -41,8 +41,9 @@ public class Solution {
             for (Integer i : vals) {
                 seen.add(tmp);
                 tmp += i;
-                if (seen.contains(tmp))
+                if (seen.contains(tmp)) {
                     return tmp;
+                }
             }
         }
     }
