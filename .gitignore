@@ -1,2 +1,4 @@
 /modules/*
 *.DS_Store
+*.iws
+/.idea/
