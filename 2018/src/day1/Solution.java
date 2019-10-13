@@ -1,4 +1,4 @@
-package day_1;
+package day1;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,15 +11,13 @@ import java.util.stream.IntStream;
 
 public class Solution {
 
-    private static final String PATH = "2018/src/day_1/input.txt";
+    private static final String PATH = "2018/src/day1/input.txt";
 
     public static void main(String[] args) {
         Supplier<IntStream> supplier = () -> {
             try {
                 return new BufferedReader(new FileReader(new File(PATH))).lines().mapToInt(Integer::parseInt);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
+            } catch (FileNotFoundException ignored) {}
             return null;
         };
 
