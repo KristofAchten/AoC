@@ -41,8 +41,6 @@ public class Solution {
                     chars1.retainAll(chars2);
                     return chars1.stream().map(Object::toString).collect(Collectors.joining());
                 }
-
-                //System.out.println(differs);
             }
         }
         return "abcde";
