@@ -1,28 +1,19 @@
 package day1;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.*;
-import java.util.function.Supplier;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import common.Tools;
 
 public class Solution {
 
     private static final String PATH = "2018/src/day1/input.txt";
 
     public static void main(String[] args) {
-        Supplier<IntStream> supplier = () -> {
-            try {
-                return new BufferedReader(new FileReader(new File(PATH))).lines().mapToInt(Integer::parseInt);
-            } catch (FileNotFoundException ignored) {}
-            return null;
-        };
-
-        System.out.println("Total sum: " + getSumOfIntStream(supplier.get()));
-        System.out.println("First wrap at " + getFirstWrap(supplier.get()));
+        System.out.println("Total sum: " + getSumOfIntStream(Tools.getInputSupplier(PATH).get().mapToInt(Integer::parseInt)));
+        System.out.println("First wrap at " + getFirstWrap(Tools.getInputSupplier(PATH).get().mapToInt(Integer::parseInt)));
     }
 
     private static int getSumOfIntStream(IntStream stream) {

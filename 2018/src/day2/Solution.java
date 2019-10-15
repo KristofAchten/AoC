@@ -1,11 +1,11 @@
 package day2;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.*;
-import java.util.function.Supplier;
+import common.Tools;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -13,15 +13,8 @@ public class Solution {
     private static final String PATH = "2018/src/day2/input.txt";
 
     public static void main(String[] args) {
-        Supplier<Stream<String>> supplier = () -> {
-            try {
-                return new BufferedReader(new FileReader(new File(PATH))).lines();
-            } catch (FileNotFoundException ignored) {}
-            return null;
-        };
-
-        System.out.println("Checksum: " + calculateChecksum(supplier.get()));
-        System.out.println("Differing letters between box IDs: " + calculateLetterDiff(supplier.get()));
+        System.out.println("Checksum: " + calculateChecksum(Tools.getInputSupplier(PATH).get()));
+        System.out.println("Differing letters between box IDs: " + calculateLetterDiff(Tools.getInputSupplier(PATH).get()));
     }
 
     private static String calculateLetterDiff(Stream<String> stringStream) {
